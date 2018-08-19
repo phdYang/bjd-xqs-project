@@ -1,6 +1,9 @@
 package model;
 
 public class SensorType {
+	/**
+	 * 传感器类型model
+	 */
 	private int typeId;
 	private String typeName;
 	private String unit;
