@@ -82,6 +82,7 @@
 		        {field:'sensorTargetName',title:'传感器监测对象',width:100},
 		        {field:'sensorLocationSectionName',title:'传感器位置',width:100}
 		    ]],
+		    pageSize:20,
 		    pagination:true, //分页
 		    fitColumns:true //列自适应宽度
 		});  

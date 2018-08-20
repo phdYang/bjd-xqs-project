@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="copyright" content="All Rights Reserved, Copyright (C) 2018, 北京交大-515, lab" />
+<meta name="copyright" content="zhaoyang" />
 <title>铁路线桥隧状态监测预警</title>
 <!-- 引入JQuery -->
 <script type="text/javascript"
@@ -87,8 +87,14 @@
 			
 			<div title="数据报警" style="overflow:auto;padding:5px;">
 				<ul class="easyui-tree">
-					<li><span><a onclick="addTab('报警设置','#');">报警设置</a></span></li>
-					<li><span><a onclick="addTab('报警查询','#');">报警查询</a></span></li>
+					<li><span>报警设置</span>
+						<ul>
+							<li><span><a onclick="addTab('报警通知方式','showAlarmMessage.jsp');">报警通知方式</a></span></li>
+							<li><span><a onclick="addTab('报警阈值修改','showAlarmStd.jsp');">报警阈值修改</a></span></li>
+							<li><span><a onclick="addTab('报警紧迫程度','showAlarmSet.jsp');">报警紧迫程度</a></span></li>
+						</ul>
+					</li>
+					<li><span><a onclick="addTab('报警查询','showAlarmLog.jsp');">报警查询</a></span></li>
 				</ul>
 			</div>
 		</div>
