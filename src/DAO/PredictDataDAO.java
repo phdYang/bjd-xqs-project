@@ -10,21 +10,28 @@ import java.util.List;
 import Vo.MonitorDataVo;
 import utils.BaseDAO;
 
-public class MonitorDataDAO {
+/**
+ * 目前这个预测模型还没实质性的功能
+ * @author zhaoyang
+ *
+ */
+public class PredictDataDAO {
 	
 	/**
-	 *  指定日期和传感器的检测值  目前只能进行2017年份的展示
+	 * 
+	 *  预测值（目前预测值来源于2016年的数据库）
 	 *  
 	 * @param startDate  开始日期(2017-01-01 00:00:00)
 	 * @param endDate    结束日期(2017-11-18 01:00:06)
 	 * @param sensorId   指定传感器
    	 * @return  返回一个valuelist
+   	 * 
 	 */
-	public List getMonitorDataVo(String startDate,String endDate,int sensorId){
+	public List getPredictDataVo(String startDate,String endDate,int sensorId){
 		List<MonitorDataVo> mvList = new ArrayList<MonitorDataVo>();
  		Connection conn = BaseDAO.getConn();
 		String sql = "select MonitorValue,MonitorDate "
-				+ "from t_monitordata_origin2017 "
+				+ "from t_monitordata_origin2016 "
 				+ "where "
 				+ "MonitorDate >= ? and MonitorDate <= ? "
 				+ "and SensorId = ? ";
@@ -47,13 +54,5 @@ public class MonitorDataDAO {
 		}
 		return mvList;
 	}
-	
-	
-//	public static void main(String[] args){
-//		MonitorDataDAO md = new MonitorDataDAO();
-//		List list = md.getMonitorDataVo("2017-01-01 01:00:00", "2017-01-02 12:00:01", 1);
-//		for(int i = 0;i<list.size();i++){
-//			System.out.println(list.get(i));
-//		}
-//	}
+
 }

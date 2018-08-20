@@ -7,17 +7,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import service.MonitorDataService;
+import service.PredictDataService;
+import utils.DateUtilsMy;
+
 /**
- * Servlet implementation class showAlarmStdUpdataServlet
+ * Servlet implementation class showPredictDataServlet
  */
-@WebServlet("/showAlarmStdUpdataServlet")
-public class showAlarmStdUpdataServlet extends HttpServlet {
+@WebServlet("/showPredictDataServlet")
+public class showPredictDataServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public showAlarmStdUpdataServlet() {
+    public showPredictDataServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,8 +42,17 @@ public class showAlarmStdUpdataServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html");
-        //System.out.println(1);
-        //后续增加修改的方法
+        int sensorId = Integer.parseInt(request.getParameter("sensorId"));
+        int predictTime = Integer.parseInt(request.getParameter("predictTime"));
+       // System.out.println(sensorId+","+predictTime);
+        String today = DateUtilsMy.getCurrentTiem();
+        
+        String startDate = today;
+        String endDate = DateUtilsMy.addDay(startDate, predictTime);
+       
+        String json_data = new PredictDataService().getPredictDataVo(startDate, endDate, sensorId);
+        //System.out.println(json_data);
+        response.getWriter().write(json_data);
 	}
 
 }

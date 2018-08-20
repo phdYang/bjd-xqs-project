@@ -81,7 +81,7 @@
 			
 			<div title="数据预测" style="overflow:auto;padding:5px;">
 				<ul class="easyui-tree">
-					<li><span><a onclick="addTab('BP神经网络预测模型','#');">BP神经网络预测模型</a></span></li>
+					<li><span><a onclick="addTab('BP神经网络预测模型','showPredictData.jsp');">BP神经网络预测模型</a></span></li>
 				</ul>
 			</div>
 			

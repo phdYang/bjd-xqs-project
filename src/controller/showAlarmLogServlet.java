@@ -42,7 +42,7 @@ public class showAlarmLogServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html");
-        System.out.println(1);
+        //System.out.println(1);
         String rows = request.getParameter("rows");
         String page = request.getParameter("page");
         if(page != null && rows != null){
