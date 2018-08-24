@@ -29,17 +29,19 @@ public class BaseDAO {
     }
  
     public static Connection getConn(){
-        if(conn == null)
+       // if(conn == null)
             new BaseDAO();
         return conn;
     }
  
-    public static void ColseAll(ResultSet rs,Statement stat){
+    public static void ColseAll(ResultSet rs,Statement stat,Connection conn){
        try{
             if(rs != null)
                 rs.close();
             if(stat != null)
                 stat.close();
+            if(conn != null)
+            	conn.close();
         }catch(SQLException e){
             e.printStackTrace();
         }

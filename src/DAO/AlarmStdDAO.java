@@ -34,7 +34,7 @@ public class AlarmStdDAO {
 				as.setMax(rs.getDouble(7));
 				asList.add(as);
 			}
-		
+			//BaseDAO.ColseAll(rs, preStat, conn);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

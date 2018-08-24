@@ -60,6 +60,11 @@
 				//alert(data);
 				var data_j = JSON.parse(data); //json字符串转换为对象
 				//alert(data_j.length);
+				var series=chart.series;            
+		        while(series.length > 0) {
+		        	series[0].remove(false);
+		        }
+		        chart.redraw();
 				for(var i = 0;i<data_j.length;i++){
 					showHighcharts(data_j[i]);	
 				}
@@ -133,11 +138,8 @@
 		          }
 			})
 		}
-		
-		
 	}
-
-
+	
 
 </script>
 </body>

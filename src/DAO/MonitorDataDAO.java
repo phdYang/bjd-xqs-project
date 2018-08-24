@@ -9,6 +9,7 @@ import java.util.List;
 
 import Vo.MonitorDataVo;
 import utils.BaseDAO;
+import utils.DateUtilsMy;
 
 public class MonitorDataDAO {
 	
@@ -37,10 +38,11 @@ public class MonitorDataDAO {
 			while(rs.next()){
 				MonitorDataVo mv = new MonitorDataVo();
 				mv.setMonitorValue(rs.getDouble(1));
-				mv.setMonitorDate(rs.getString(2));
+				//mv.setMonitorDate(rs.getString(2));
+				mv.setMonitorDate(DateUtilsMy.addYear(rs.getString(2), 1));  //依然是假数据
 				mvList.add(mv);
 			}
-			
+			//BaseDAO.ColseAll(rs, preStat, conn);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

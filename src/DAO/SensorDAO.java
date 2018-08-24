@@ -32,7 +32,7 @@ public class SensorDAO {
 				sv.setSensorName(rs.getString(2));
 				svList.add(sv);
 			}
-		
+			//BaseDAO.ColseAll(rs, preStat, conn);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -66,7 +66,7 @@ public class SensorDAO {
 				sv.setSensorLocationSectionName(rs.getString(5));
 				svList.add(sv);
 			}
-	
+			//BaseDAO.ColseAll(rs, preStat, conn);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -117,7 +117,7 @@ public class SensorDAO {
 				sv.setSensorLocationSectionName(rs.getString(5));
 				svList.add(sv);
 			}
-	
+			//BaseDAO.ColseAll(rs, preStat, conn);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -141,6 +141,7 @@ public class SensorDAO {
 			while(rs.next()){
 				total = rs.getInt(1);
 			}
+			//BaseDAO.ColseAll(rs, preStat, conn);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -175,6 +176,7 @@ public class SensorDAO {
 			while(rs.next()){
 				total = rs.getInt(1);
 			}
+			//BaseDAO.ColseAll(rs, preStat, conn);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -200,7 +202,7 @@ public class SensorDAO {
 				stv.setUnit(rs.getString(3));
 				stvList.add(stv);
 			}
-		
+			//BaseDAO.ColseAll(rs, preStat, conn);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -226,7 +228,7 @@ public class SensorDAO {
 				stg.setIsValid(rs.getInt(3));
 				stgList.add(stg);
 			}
-		
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -242,9 +244,11 @@ public class SensorDAO {
 		List<SensorLocationSection> slsList = new ArrayList<SensorLocationSection>();
  		Connection conn = BaseDAO.getConn();
 		String sql = "SELECT * FROM t_location_section";
+		PreparedStatement preStat = null;
+		ResultSet rs = null;
 		try {
-			PreparedStatement preStat = conn.prepareStatement(sql);
-			ResultSet rs = preStat.executeQuery();
+			preStat = conn.prepareStatement(sql);
+			rs = preStat.executeQuery();
 			while(rs.next()){
 				SensorLocationSection sls = new SensorLocationSection();
 				sls.setSectionId(rs.getInt(1));
@@ -252,7 +256,7 @@ public class SensorDAO {
 				sls.setIsValid(rs.getInt(3));
 				slsList.add(sls);
 			}
-		
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -275,7 +279,6 @@ public class SensorDAO {
 			while(rs.next()){
 				sensorName = rs.getString(1);
 			}
-		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

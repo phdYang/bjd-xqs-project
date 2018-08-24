@@ -33,7 +33,7 @@ public class AlarmLogDAO {
 				al.setAlarmContent(rs.getString(6));
 				alList.add(al);
 			}
-		
+			//BaseDAO.ColseAll(rs, preStat, conn);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -66,7 +66,7 @@ public class AlarmLogDAO {
 				al.setAlarmContent(rs.getString(6));
 				alList.add(al);
 			}
-		
+			//BaseDAO.ColseAll(rs, preStat, conn);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -88,6 +88,7 @@ public class AlarmLogDAO {
 			while(rs.next()){
 				total = rs.getInt(1);
 			}
+			//BaseDAO.ColseAll(rs, preStat, conn);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

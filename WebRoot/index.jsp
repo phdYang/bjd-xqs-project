@@ -52,7 +52,7 @@
 			style="float:left;width:60%;text-align:center;font-size: 20px;font-weight: bold;font-style: ">
 			<p style="padding-left: 10px;color: white;">铁&nbsp;路&nbsp;线&nbsp;桥&nbsp;隧&nbsp;状&nbsp;态&nbsp;监&nbsp;测&nbsp;预&nbsp;警</p>
 		</div>
-		<div class="index-north-right" style="float:left;width:20%;">right</div>
+		<div class="index-north-right" style="float:left;width:20%;"></div>
 	</div>
 	<!-- 下侧  -->
 	<div data-options="region:'south',split:false"
@@ -103,8 +103,8 @@
 	<!-- 中心区域 -->
 	<div data-options="region:'center',title:'基本操作区域'" style="height:auto;">
 		<div id="easyui-tabs" class="easyui-tabs" data-options="fit:true,border:false" >
-		    <div title="首页" 
-		    	style="background-image: url(imgs/index-bg1.jpg);"></div>
+		    <div title="桥上道岔监测示范工点传感器布置情况" 
+		    	style="background: url(imgs/index-bg2.png) no-repeat; background-size:100% 100%;"></div>
 		</div>
 	</div>
 

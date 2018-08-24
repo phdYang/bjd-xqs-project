@@ -47,7 +47,7 @@ public class PredictDataDAO {
 				mv.setMonitorDate(rs.getString(2));
 				mvList.add(mv);
 			}
-			
+			//BaseDAO.ColseAll(rs, preStat, conn);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

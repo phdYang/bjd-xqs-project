@@ -63,6 +63,25 @@ public class DateUtilsMy {
 		return endTime;
 	}
 	
+	public static String addYear2(String currentTime,int year) {
+		String endTime = "";
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Date cd = null;
+		try {
+			cd = sdf.parse(currentTime);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+        Calendar c = Calendar.getInstance();
+        c.setTime(cd);
+        c.add(Calendar.YEAR, year);
+ 
+        Date  ed = c.getTime();
+        endTime = sdf.format(ed);
+		return endTime;
+	}
+	
 	public static void main(String[] args) {
 		System.out.println("今天："+DateUtilsMy.getCurrentTiem());
 		System.out.println("今天加一天："+DateUtilsMy.addDay(DateUtilsMy.getCurrentTiem(), 1));

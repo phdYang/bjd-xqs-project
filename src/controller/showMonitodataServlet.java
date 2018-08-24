@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import service.MonitorDataService;
 import service.SensorService;
+import utils.DateUtilsMy;
 
 /**
  * Servlet implementation class showMonitodataServlet
@@ -46,13 +47,16 @@ public class showMonitodataServlet extends HttpServlet {
         //int sensorId = Integer.parseInt(request.getParameter("sensorId"));
         String starDate = request.getParameter("starDate");
         String endDate = request.getParameter("endDate");
+        //以下两行，为了伪造一个2018年的假数据，当界面选择2018时，实际上去查的是2017的数据库
+        String sd = DateUtilsMy.addYear2(starDate, -1);
+        String ed = DateUtilsMy.addYear2(endDate, -1);
         //System.out.println(sensorId+","+starDate+","+endDate);
         int sensorId = 0;
         String js_rs = "[";
         for (int i = 0; i < sensorIds.length; i++) {
         	//System.out.println(sensorIds[i]);
         	sensorId = Integer.parseInt(sensorIds[i]);
-        	String json_data = new MonitorDataService().getMonitorDataVo(starDate, endDate, sensorId);
+        	String json_data = new MonitorDataService().getMonitorDataVo(sd, ed, sensorId);
         	//System.out.println(json_data);
         	String sensorName = new SensorService().getSensorNameById(sensorId);
         	js_rs += "{";
