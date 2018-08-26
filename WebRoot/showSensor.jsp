@@ -32,8 +32,10 @@
 		<a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()">取消</a>
 </form>
 <table id="dg"></table>
- 
+
+
 <script type="text/javascript">
+	
 	
 	$('#showSensor-cc').combobox({
 	    url:'showSensorTypeServlet',
@@ -69,6 +71,8 @@
 	}
 	
 	$(function(){
+		$('#m').window('close');
+		
 		$('#dg').datagrid({    
 		    url:'showSensorServlet',
 		    method:'post',
@@ -81,13 +85,30 @@
 		        {field:'sensorTypeName',title:'监测指标类型',width:100},
 		        {field:'sensorTargetName',title:'传感器监测对象',width:100},
 		        {field:'sensorLocationSectionName',title:'传感器位置',width:100},
-		        {field:'sensorClass',title:'传感器类型',width:100}
+		        {field:'sensorClass',title:'传感器类型',width:100},
 		    ]],
 		    pageSize:20,
 		    pagination:true, //分页
-		    fitColumns:true //列自适应宽度
+		    fitColumns:true, //列自适应宽度
+		    toolbar:[
+		    	{text:'查看详情', iconCls:'icon-search', handler: function(){searchMore();} },
+		    	{text:'增加', iconCls:'icon-add', handler: function(){} },
+		    	{text:'删除', iconCls:'icon-remove', handler: function(){} },
+		    	{text:'修改', iconCls:'icon-edit', handler: function(){} }
+		    ]
 		});  
 	})
+	
+	function searchMore(){
+		var row = $('#dg').datagrid('getSelections');
+		if(row.length == 1 ){
+			$.messager.alert("!","正在设计！");
+		}else{
+			$.messager.alert("提示","请选择一行！");
+			$('#dg').datagrid('clearSelections');
+		}
+		
+	}
 </script>
 
 </body>
