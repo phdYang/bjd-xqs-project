@@ -62,46 +62,62 @@
 
 	
 	<!-- 左侧 -->
-	<div data-options="region:'west',title:'功能项',split:false"
+	<div data-options="region:'west',title:'',split:false"
 		style="width: 220px;">
 		
 		<div class="easyui-accordion" style="width: 210px;height:auto;">
 			
-			<div title="台账信息" style="overflow:auto;padding:5px;">
+			<div title="用户管理" style="overflow:auto;padding:5px;">
 				<ul class="easyui-tree">
-					<li><span><a onclick="addTab('传感器查询','showSensor.jsp');">传感器查询</a></span></li>
+					<li><span><a onclick="addTab('用户操作日志查询','showUserLog.jsp');">用户操作日志查询</a></span></li>
+					<li><span><a onclick="addTab('用户权限设置','showUserRight.jsp');">用户权限设置</a></span></li>
+				</ul>
+			</div>
+			
+			<div title="台账管理" style="overflow:auto;padding:5px;">
+				<ul class="easyui-tree">
+					<li><span><a onclick="addTab('传感器管理','showSensor.jsp');">传感器管理</a></span></li>
+					<li><span><a onclick="addTab('设备管理','showDevice.jsp');">设备管理</a></span></li>
 				</ul>
 			</div>
 			
 			<div title="监测数据管理" style="overflow:auto;padding:5px;">
 				<ul class="easyui-tree">
-					<li><span><a onclick="addTab('数据查询','showMonitorData.jsp');">数据查询</a></span></li>
+					<li><span><a onclick="addTab('监测数据查询','showMonitorData.jsp');">监测数据查询</a></span></li>
+					<li><span><a onclick="addTab('监测数据校验','showMonitorDataCheck.jsp');">监测数据检验</a></span></li>
 				</ul>
 			</div>
 			
-			<div title="数据预测" style="overflow:auto;padding:5px;">
+			<div title="工务辅助决策" style="overflow:auto;padding:5px;">
 				<ul class="easyui-tree">
-					<li><span><a onclick="addTab('BP神经网络预测模型','showPredictData.jsp');">BP神经网络预测模型</a></span></li>
-				</ul>
-			</div>
-			
-			<div title="数据报警" style="overflow:auto;padding:5px;">
-				<ul class="easyui-tree">
-					<li><span>报警设置</span>
+					<li><span>监测数据预测</span>
 						<ul>
-							<li><span><a onclick="addTab('报警通知方式','showAlarmMessage.jsp');">报警通知方式</a></span></li>
-							<li><span><a onclick="addTab('报警阈值修改','showAlarmStd.jsp');">报警阈值修改</a></span></li>
-							<li><span><a onclick="addTab('报警紧迫程度','showAlarmSet.jsp');">报警紧迫程度</a></span></li>
+							<li><span><a onclick="addTab('梁端伸缩位移预测','showLDSSPredictData.jsp');">梁端伸缩位移预测</a></span></li>
+							<li><span><a onclick="addTab('钢轨纵向爬行预测','showGGZXPredictData.jsp');">钢轨纵向爬行预测</a></span></li>
+							<li><span><a onclick="addTab('尖轨尖端伸缩预测','showJGJDPredictData.jsp');">尖轨尖端伸缩预测</a></span></li>
+							<li><span><a onclick="addTab('钢轨附加应力预测','showGGFJPredictData.jsp');">钢轨附加应力预测</a></span></li>
 						</ul>
 					</li>
-					<li><span><a onclick="addTab('报警查询','showAlarmLog.jsp');">报警查询</a></span></li>
+					<li><span>数据异常报警</span>
+						<ul>
+							<li><span>报警设置</span>
+							<ul>
+								<li><span><a onclick="addTab('报警通知方式','showAlarmMessage.jsp');">报警通知方式</a></span></li>
+								<li><span><a onclick="addTab('报警阈值修改','showAlarmStd.jsp');">报警阈值修改</a></span></li>
+								<li><span><a onclick="addTab('报警紧迫程度','showAlarmSet.jsp');">报警紧迫程度</a></span></li>
+							</ul>
+							</li>
+							<li><span><a onclick="addTab('报警查询','showAlarmLog.jsp');">报警查询</a></span></li>
+						</ul>
+					</li>
 				</ul>
 			</div>
+			
 		</div>
 			
 	</div>
 	<!-- 中心区域 -->
-	<div data-options="region:'center',title:'基本操作区域'" style="height:auto;">
+	<div data-options="region:'center',title:''" style="height:auto;">
 		<div id="easyui-tabs" class="easyui-tabs" data-options="fit:true,border:false" >
 		    <div title="桥上道岔监测示范工点传感器布置情况" 
 		    	style="background: url(imgs/index-bg2.png) no-repeat; background-size:100% 100%;"></div>

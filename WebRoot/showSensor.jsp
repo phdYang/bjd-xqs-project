@@ -78,9 +78,10 @@
 		    columns:[[    
 		        {field:'sensorId',title:'传感器编号',width:100},    
 		        {field:'sensorName',title:'传感器名称',width:100},
-		        {field:'sensorTypeName',title:'传感器类型',width:100},
+		        {field:'sensorTypeName',title:'监测指标类型',width:100},
 		        {field:'sensorTargetName',title:'传感器监测对象',width:100},
-		        {field:'sensorLocationSectionName',title:'传感器位置',width:100}
+		        {field:'sensorLocationSectionName',title:'传感器位置',width:100},
+		        {field:'sensorClass',title:'传感器类型',width:100}
 		    ]],
 		    pageSize:20,
 		    pagination:true, //分页

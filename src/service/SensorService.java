@@ -38,6 +38,33 @@ public class SensorService {
 	}
 	
 	/**
+	 * 返回传感器类型
+	 * @return
+	 */
+	public String getSensorItem(){
+		String json_str = "";
+		SensorDAO sd = new SensorDAO();
+		List list = sd.getSensorItem();
+		json_str = JSONArray.toJSONString(list);
+		return json_str;
+	}
+	/**
+	 * 按照传感器类型查询传感器
+	 * @param itemId
+	 * @return
+	 */
+	public String getSensorVo(int itemId){
+		String json_str = "";
+		SensorDAO sd = new SensorDAO();
+		int total = sd.getSensorTotal();
+		if(total>0){
+			List<SensorVo> list = sd.getSensorVo(itemId);
+			json_str = JSONArray.toJSONString(list);
+			
+		}
+		return json_str;
+	}
+	/**
 	 * 根据传感器类型查询传感器
 	 * @param page 当前页码
 	 * @param rows 当前页面显示行数

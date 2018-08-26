@@ -9,6 +9,7 @@ import java.util.List;
 
 import Vo.SensorTypeVo;
 import Vo.SensorVo;
+import model.SensorItem;
 import model.SensorLocationSection;
 import model.SensorTarget;
 import utils.BaseDAO;
@@ -40,8 +41,35 @@ public class SensorDAO {
 		return svList;
 	}
 	/**
+	 * 按照传感器类型查询传感器
+	 * @param itemId
+	 * @return
+	 */
+	public List getSensorVo(int itemId){
+		List<SensorVo> svList = new ArrayList<SensorVo>();
+ 		Connection conn = BaseDAO.getConn();
+		String sql = "SELECT SensorId,SensorName FROM t_sensor WHERE SensorItemId = ?";
+		try {
+			PreparedStatement preStat = conn.prepareStatement(sql);
+			preStat.setInt(1, itemId);
+			ResultSet rs = preStat.executeQuery();
+			while(rs.next()){
+				SensorVo sv = new SensorVo();
+				sv.setSensorId(rs.getInt(1));
+				sv.setSensorName(rs.getString(2));
+				svList.add(sv);
+			}
+			//BaseDAO.ColseAll(rs, preStat, conn);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return svList;
+	}
+	/**
 	 * 分页获取传感器表的id和传感器姓名
 	 * @return 传感器列表
+	 * @problems  这里有个问题是，模拟数据的不完整，造成分页的不完整
 	 */
 	public List getSensorVo(int page,int rows){
 		List<SensorVo> svList = new ArrayList<SensorVo>();
@@ -64,6 +92,7 @@ public class SensorDAO {
 				sv.setSensorTypeName(rs.getString(3));
 				sv.setSensorTargetName(rs.getString(4));
 				sv.setSensorLocationSectionName(rs.getString(5));
+				sv.setSensorClass("光纤光栅");
 				svList.add(sv);
 			}
 			//BaseDAO.ColseAll(rs, preStat, conn);
@@ -115,6 +144,7 @@ public class SensorDAO {
 				sv.setSensorTypeName(rs.getString(3));
 				sv.setSensorTargetName(rs.getString(4));
 				sv.setSensorLocationSectionName(rs.getString(5));
+				sv.setSensorClass("光纤光栅");
 				svList.add(sv);
 			}
 			//BaseDAO.ColseAll(rs, preStat, conn);
@@ -284,5 +314,28 @@ public class SensorDAO {
 			e.printStackTrace();
 		}
 		return sensorName;
+	}
+	
+	public List getSensorItem() {
+		List<SensorItem> siList = new ArrayList<SensorItem>();
+ 		Connection conn = BaseDAO.getConn();
+		String sql = "SELECT ItemId,ItemName FROM t_sensor_item";
+		PreparedStatement preStat = null;
+		ResultSet rs = null;
+		try {
+			preStat = conn.prepareStatement(sql);
+			rs = preStat.executeQuery();
+			while(rs.next()){
+				SensorItem si = new SensorItem();
+				si.setItemId(rs.getInt(1));
+				si.setItemName(rs.getString(2));
+				siList.add(si);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return siList;
 	}
 }

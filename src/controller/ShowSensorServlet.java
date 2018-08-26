@@ -77,7 +77,7 @@ public class ShowSensorServlet extends HttpServlet {
                 int rowss = Integer.parseInt(rows) ;
                 int pagess = Integer.parseInt(page) ;
                 String json_list = new SensorService().getSensorVo(pagess, rowss);
-                //System.out.println(json_list);
+                System.out.println(json_list);
                 response.getWriter().write(json_list) ;
             }else{
             	response.getWriter().write("{total:0,rows:[]}") ;

@@ -24,6 +24,10 @@
 	type="text/css" />
 </head>
 <body>
+<form>
+<div>
+	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()">保存修改</a>
+</div>
 <div style="padding-left:280px;padding-top:50px;">
 	<div>
 		<span>系统故障报警：</span>
@@ -95,5 +99,6 @@
 		</select>
 	</div>
 </div>
+</form>
 </body>
 </html>
