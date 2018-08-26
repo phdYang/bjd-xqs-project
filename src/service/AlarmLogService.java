@@ -7,6 +7,7 @@ import com.alibaba.fastjson.JSONArray;
 import DAO.AlarmLogDAO;
 import DAO.SensorDAO;
 import Vo.SensorVo;
+import model.AlarmLog;
 import model.AlarmStd;
 
 public class AlarmLogService {
@@ -24,7 +25,7 @@ public class AlarmLogService {
 		AlarmLogDAO ald = new AlarmLogDAO();
 		int total = ald.getAlarmLogTotal();
 		if(total>0){
-			List<SensorVo> list = ald.getAllAlarmLog(page, rows);
+			List<AlarmLog> list = ald.getAllAlarmLog(page, rows);
 			String json_str = JSONArray.toJSONString(list);
 			rtn =  "{\"total\":"+total+",\"rows\":"+json_str+"}" ;
 		}
